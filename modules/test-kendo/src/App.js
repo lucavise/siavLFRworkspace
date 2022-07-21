@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import '@progress/kendo-theme-default/dist/all.css';
+import { Calendar } from '@progress/kendo-react-dateinputs';
+import { process } from '@progress/kendo-data-query';
+import { Grid, GridColumn } from '@progress/kendo-react-grid';
 import './App.css';
+import products from './products.json';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello KendoReact!</h1>
+      <Calendar />
+      <Grid
+        data={products}>
+        <GridColumn field="ProductName" />
+        <GridColumn field="UnitPrice" />
+        <GridColumn field="UnitsInStock" />
+        <GridColumn field="Discontinued" />
+      </Grid>
     </div>
   );
 }
